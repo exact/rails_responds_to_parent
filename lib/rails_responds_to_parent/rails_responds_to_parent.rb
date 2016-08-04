@@ -50,7 +50,7 @@ module RailsRespondsToParent
         gsub(/['"]/, '\\\\\&').
         gsub('</script>','</scr"+"ipt>')
 
-      if(Rails::VERSION::MAJOR == 3)
+      if Rails::VERSION::MAJOR >= 3
         # Clear out the previous render to prevent double render
         response.request.env['action_controller.instance'].instance_variable_set(:@_response_body, nil)
       else
